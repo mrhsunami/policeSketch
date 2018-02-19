@@ -14,5 +14,16 @@
 @property (nonatomic, strong) UIImage *nose;
 @property (nonatomic, strong) UIImage *mouth;
 
+-(void)nextEyes;
+-(void)previousEyes;
+
+-(void)nextNose;
+-(void)previousNose;
+
+-(void)nextMouth;
+-(void)previousMouth;
+
+
+
 
 @end

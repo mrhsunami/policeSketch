@@ -13,23 +13,25 @@
 
 
 
-@property (weak, nonatomic) IBOutlet UIImageView *eyes;
-@property (weak, nonatomic) IBOutlet UIImageView *nose;
-@property (weak, nonatomic) IBOutlet UIImageView *mouth;
+@property (strong, nonatomic) IBOutlet UIImageView *eyes;
+@property (strong, nonatomic) IBOutlet UIImageView *nose;
+@property (strong, nonatomic) IBOutlet UIImageView *mouth;
 
+@property (strong, nonatomic) CurrentFace *currentFace;
 
 
 @end
+
 
 @implementation LHLViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    CurrentFace *currentface = [[CurrentFace alloc] init];
-    [self.eyes setImage:currentface.eyes];
-    [self.nose setImage:currentface.nose];
-    [self.mouth setImage:currentface.mouth];
+    self.currentFace = [[CurrentFace alloc] init];
+    [self.eyes setImage:self.currentFace.eyes];
+    [self.nose setImage:self.currentFace.nose];
+    [self.mouth setImage:self.currentFace.mouth];
 }
 
 
@@ -39,16 +41,28 @@
 
 
 - (IBAction)nextEyesButton:(id)sender {
+    [self.currentFace nextEyes];
+    [self.eyes setImage:self.currentFace.eyes];
 }
 - (IBAction)previousEyesButton:(id)sender {
+    [self.currentFace previousEyes];
+    [self.eyes setImage:self.currentFace.eyes];
 }
 - (IBAction)nextNoseButton:(id)sender {
+    [self.currentFace nextNose];
+    [self.nose setImage:self.currentFace.nose];
 }
 - (IBAction)previousNoseButton:(id)sender {
+    [self.currentFace previousNose];
+    [self.nose setImage:self.currentFace.nose];
 }
 - (IBAction)nextMouthButton:(id)sender {
+    [self.currentFace nextMouth];
+    [self.mouth setImage:self.currentFace.mouth];
 }
 - (IBAction)previousMouthButton:(id)sender {
+    [self.currentFace previousMouth];
+    [self.mouth setImage:self.currentFace.mouth];
 }
 
 
